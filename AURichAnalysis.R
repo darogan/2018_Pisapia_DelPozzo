@@ -274,7 +274,7 @@ plot_DQA_di <- ggplot() +
                col = ifelse( (DQA_densities$DQA101_di > DQA_densities$DQA105_di), "red", "grey")  )  +
                geom_jitter(data=DQA_densities, aes(x=position, y=DQA105_di), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                col = ifelse( (DQA_densities$DQA105_di > DQA_densities$DQA101_di), "blue", NA)  )  +
-               ylab("DQA*") + xlab("") +
+               ylab("DQA1*") + xlab("") +
                ylim(0.0001,3.5)
 
 plot_DQB_di <- ggplot() + 
@@ -282,7 +282,7 @@ plot_DQB_di <- ggplot() +
                col = ifelse( (DQB_densities$DQB105_di > DQB_densities$DQB102_di), "red", "grey")  )  +
                geom_jitter(data=DQB_densities, aes(x=position, y=DQB102_di), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                col = ifelse( (DQB_densities$DQB102_di > DQB_densities$DQB105_di), "blue", NA)  )  +
-               ylab("DQB*") + xlab("") +
+               ylab("DQB1*") + xlab("") +
                ylim(0.0001,3.5)
 
 plot_DQA_tri <- ggplot() + 
@@ -290,7 +290,7 @@ plot_DQA_tri <- ggplot() +
                col = ifelse( (DQA_densities$DQA101_tri > DQA_densities$DQA105_tri), "red", "grey")  )  +
                geom_jitter(data=DQA_densities, aes(x=position, y=DQA105_tri), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                col = ifelse( (DQA_densities$DQA105_tri > DQA_densities$DQA101_tri), "blue", NA)  )  +
-               ylab("DQA*") + xlab("") +
+               ylab("DQA1*") + xlab("") +
                ylim(0.0001,3.5)
 
 plot_DQB_tri <- ggplot() + 
@@ -298,7 +298,7 @@ plot_DQB_tri <- ggplot() +
                 col = ifelse( (DQB_densities$DQB105_tri > DQB_densities$DQB102_tri), "red", "grey")  )  +
                 geom_jitter(data=DQB_densities, aes(x=position, y=DQB102_tri), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                 col = ifelse( (DQB_densities$DQB102_tri > DQB_densities$DQB105_tri), "blue", NA)  )  +
-                ylab("DQB*") + xlab("") +
+                ylab("DQB1*") + xlab("") +
                 ylim(0.0001,3.5)
 
 plot_DQA_quad <- ggplot() + 
@@ -306,7 +306,7 @@ plot_DQA_quad <- ggplot() +
                  col = ifelse( (DQA_densities$DQA101_quad > DQA_densities$DQA105_quad), "red", "grey")  )  +
                  geom_jitter(data=DQA_densities, aes(x=position, y=DQA105_quad), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                  col = ifelse( (DQA_densities$DQA105_quad > DQA_densities$DQA101_quad), "blue", NA)  )  +
-                 ylab("DQA*") + xlab("") +
+                 ylab("DQA1*") + xlab("") +
                  ylim(0.0001,3.5)
 
 plot_DQB_quad <- ggplot() + 
@@ -314,7 +314,7 @@ plot_DQB_quad <- ggplot() +
                  col = ifelse( (DQB_densities$DQB105_quad > DQB_densities$DQB102_quad), "red", "grey")  )  +
                  geom_jitter(data=DQB_densities, aes(x=position, y=DQB102_quad), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                  col = ifelse( (DQB_densities$DQB102_quad > DQB_densities$DQB105_quad), "blue", NA)  )  +
-                 ylab("DQB*") + xlab("") +
+                 ylab("DQB1*") + xlab("") +
                  ylim(0.0001,3.5)
 
 
@@ -323,7 +323,7 @@ plot_DQA_penta <- ggplot() +
                   col = ifelse( (DQA_densities$DQA101_penta > DQA_densities$DQA105_penta), "red", "grey")  )  +
                   geom_jitter(data=DQA_densities, aes(x=position, y=DQA105_penta), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                   col = ifelse( (DQA_densities$DQA105_penta > DQA_densities$DQA101_penta), "blue", NA)  )  +
-                  ylab("DQA*") + xlab("") +
+                  ylab("DQA1*") + xlab("") +
                   ylim(0.0001,3.5)
 
 plot_DQB_penta <- ggplot() + 
@@ -331,7 +331,7 @@ plot_DQB_penta <- ggplot() +
                   col = ifelse( (DQB_densities$DQB105_penta > DQB_densities$DQB102_penta), "red", "grey")  )  +
                   geom_jitter(data=DQB_densities, aes(x=position, y=DQB102_penta), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                   col = ifelse( (DQB_densities$DQB102_penta > DQB_densities$DQB105_penta), "blue", NA)  )  +
-                  ylab("DQB*") + xlab("") +
+                  ylab("DQB1*") + xlab("") +
                   ylim(0.0001,3.5)
 
 
@@ -340,7 +340,7 @@ plot_DQA_hexa <- ggplot() +
                  col = ifelse( (DQA_densities$DQA101_hexa > DQA_densities$DQA105_hexa), "red", "grey")  )  +
                  geom_jitter(data=DQA_densities, aes(x=position, y=DQA105_hexa), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                  col = ifelse( (DQA_densities$DQA105_hexa > DQA_densities$DQA101_hexa), "blue", NA)  )  +
-                 ylab("DQA*") + xlab("Sequence Position") +
+                 ylab("DQA1*") + xlab("Sequence Position") +
                  ylim(0.0001,3.5)
 
 plot_DQB_hexa <- ggplot() + 
@@ -348,7 +348,7 @@ plot_DQB_hexa <- ggplot() +
                  col = ifelse( (DQB_densities$DQB105_hexa > DQB_densities$DQB102_hexa), "red", "grey")  )  +
                  geom_jitter(data=DQB_densities, aes(x=position, y=DQB102_hexa), size = 3, shape=15, alpha=0.5, width = 0.025, height=0.01, 
                  col = ifelse( (DQB_densities$DQB102_hexa > DQB_densities$DQB105_hexa), "blue", NA)  )  +
-                 ylab("DQB*") + xlab("") +
+                 ylab("DQB1*") + xlab("") +
                  ylim(0.0001,3.5)
 
 title.di    <- ggdraw() + draw_label("Di-nucleotide motif position",    fontface='bold')
