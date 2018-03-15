@@ -49,6 +49,15 @@ Create plots from frequency tables:
 
     Rscript AURichAnalysis.R
 
+Example AU Rich Motif Observed Vs Expected Frequency plot
+
+![AUMotif_ObsExp](AUMotif_ObsExp.png?raw=true=100x)
+
+Examples AU Rich Motif Position plot
+
+![AUMotif_Positions](AUMotif_Positions.png?raw=true=100x)
+
+
 ## References ##
 
 Havgaard JH, Torarinsson E, Gorodkin J. Fast pairwise structural RNA alignments by pruning of the dynamical programming matrix. PLoS Comput Biol. 2007 Oct;3(10):1896-908. doi: 10.1371/journal.pcbi.0030193. PubMed PMID: 17937495; PubMed Central PMCID: PMCPMC2014794
