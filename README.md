@@ -1,4 +1,4 @@
-# Tristetraprolin regulates the turnover of autoimmune-associated HLA-DQ mRNAs
+# Tristetraprolin/ZFP36 regulates the turnover of autoimmune-associated HLA-DQ mRNAs
 
 **Pisapia Laura<sup>a,‡</sup>, Hamilton S. Russell<sup>b,‡</sup>, D’Agostino Vito<sup>c</sup>, Barba Pasquale<sup>a</sup>, Strazzullo Maria<sup>a</sup>, Provenzano Alessandro<sup>c</sup>, Gianfrani Carmen<sup>d</sup> and Del Pozzo Giovanna<sup>a,§</sup>**
 
