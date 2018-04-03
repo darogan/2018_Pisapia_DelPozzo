@@ -15,13 +15,13 @@
 To be added on paper acceptance
 
 
-### Figure 1 ###
+### Figure 2 ###
 
 RNAVienna (Lorenz et al, 2011) dot bracket notation structures were rendered into 2D images using FORNA (Kerpedjiev et al, 2015). Additional motifs were added from FOLDALIGN (Havgaard et al, 2007) and the `AURichness.pl` script described below.
 
-### Figure 2 ###
+### Figure 3 ###
 
-To calculate the AU rich motifs in the riboprobes a stand alone Perl script takes the sequences and produces frequency tables. These tables are then inputted into the R script to produce the plots as seen in Figure 2.
+To calculate the AU rich motifs in the riboprobes a stand alone Perl script takes the sequences and produces frequency tables. These tables are then inputted into the R script to produce the plots as seen in Figure 3.
 
 The following commands run from the same directory will produce frequency tables and plots from them using R.
 
