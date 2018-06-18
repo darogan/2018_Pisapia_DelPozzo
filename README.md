@@ -10,9 +10,14 @@
 <sup>§</sup> Corresponding author <br>
 </sup>
 
+## Citation ##
+
+Pisapia, L., Hamilton, R.S., D’Agostino, V, Pasqualea, B., Strazzullo, M., Provenzano, A., Gianfrani, C. & Del Pozzo, G. (2018) Tristetraprolin/ZFP36 regulates the turnover of autoimmune-associated HLA-DQ mRNAs [bioRxiv](https://doi.org/10.1101/337907)
+
 ## Abstract ##
 
-To be added on paper acceptance
+We have previously demonstrated that the expression of HLA class II transcripts is regulated by the binding of a ribonucleoprotein complex that affects mRNA processing. We identified protein components of a complex binding transcripts encoding the HLA-DR molecule. Here we aimed to verify if the same RNA binding proteins interact with 3’UTR of messengers encoding the HLA-DQ isotype Specifically, we focused on the HLA-DQ2.5 molecule, expressed on the surface of antigen presenting cells, and representing the main susceptibility factor for celiac disease. This molecule, encoded by DQA1*05 and DQB1*02 alleles, presents the antigenic gluten peptides to CD4+ T lymphocytes, activating the autoimmune response.
+Here, we identified an additional component of the RNP complex, Tristetraprolin (TTP) or ZFP36, a zinc- finger protein, widely described as a factor modulating mRNA stability. TTP shows high affinity binding to 3’UTR of CD-associated DQA1*05 and DQB1*02 alleles, in contrast to lower affinity binding to DQA1*01 and DQB1*05 non-CD associated alleles. Our in silico analysis, confirmed by molecular depletion of protein and HLA mRNA quantification, demonstrates that TTP specifically modulates the stability of the transcripts associated with celiac disease. Our work demonstrates, for the first time, that proteins of the RNP complex, affecting the processing of transcripts, interact with allele-specific transcripts.  
 
 
 ### Figure 2 ###
