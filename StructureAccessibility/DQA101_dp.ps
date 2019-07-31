@@ -1,0 +1,471 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Title: RNA Dot Plot
+%%Creator: ViennaRNA-2.3.3
+%%CreationDate: Sun Dec  2 09:42:47 2018
+%%BoundingBox: 66 530 520 650
+%%DocumentFonts: Helvetica
+%%Pages: 1
+%%EndComments
+
+%Options: 
+%This file contains the square roots of the base pair probabilities in the form
+% i  j  sqrt(p(i,j)) ubox
+
+%%BeginProlog
+/DPdict 100 dict def
+DPdict begin
+/logscale false def
+/lpmin 1e-05 log def
+
+/DataVisible  [ true true true true] def
+/DataTitles   [ false false false false ] def
+
+/min { 2 copy gt { exch } if pop } bind def
+
+/max { 2 copy lt { exch } if pop } bind def
+
+/box { %size x y box - draws box centered on x,y
+   2 index 0.5 mul sub            % x -= 0.5
+   exch 2 index 0.5 mul sub exch  % y -= 0.5
+   3 -1 roll dup rectfill
+} bind def
+
+/ubox {
+   logscale {
+      log dup add lpmin div 1 exch sub dup 0 lt { pop 0 } if
+   } if
+   3 1 roll
+   exch len exch sub 1 add box
+} bind def
+
+/lbox {
+   3 1 roll
+   len exch sub 1 add box
+} bind def
+
+/drawseq {
+% print sequence along all 4 sides
+[ [0.7 -0.3 0 ]
+  [0.7 0.7 len add 0]
+  [-0.3 len sub -0.4 -90]
+  [-0.3 len sub 0.7 len add -90]
+] {
+   gsave
+    aload pop rotate translate
+    0 1 len 1 sub {
+     dup 0 moveto
+     sequence exch 1 getinterval
+     show
+    } for
+   grestore
+  } forall
+} bind def
+
+/drawgrid{
+  gsave
+  0.5 dup translate  0.01 setlinewidth
+  len log 0.9 sub cvi 10 exch exp  % grid spacing
+  dup 1 gt {
+     dup dup 20 div dup 2 array astore exch 40 div setdash
+  } { [0.3 0.7] 0.1 setdash } ifelse
+  0 exch len {
+     dup dup
+     0 moveto
+     len lineto
+     dup
+     len exch sub 0 exch moveto
+     len exch len exch sub lineto
+     stroke
+  } for
+  [] 0 setdash
+  0.04 setlinewidth
+  currentdict /cutpoint known {
+    cutpoint 1 sub
+    dup dup -1 moveto len 1 add lineto
+    len exch sub dup
+    -1 exch moveto len 1 add exch lineto
+    stroke
+  } if
+  %% draw diagonal
+  0 len moveto len 0 lineto stroke
+  grestore
+} bind def
+
+/drawTitle {
+  currentdict /DPtitle known {
+    % center title text
+    /Helvetica findfont 10 scalefont setfont
+    360 705 moveto DPtitle dup stringwidth pop 2 div neg 0 rmoveto show
+  } if
+} bind def
+
+/prepareCoords {
+  0 1 3 {
+    % check whether we want to display current data
+    dup DataVisible exch get
+    {
+      % check whether we've actually got some data
+      DataSource exch get dup currentdict exch known {
+        % data source s_j is present, so find length of array
+        currentdict exch get length 
+      } { pop 0 } ifelse
+    } if
+  } for
+  exch dup 5 -1 roll add 4 -1 roll dup 5 1 roll 4 -1 roll add max
+  len add 3 add 700 exch div dup scale
+  exch 1 add exch 1 add translate
+} bind def
+
+end
+%EndProlog
+
+DPdict begin
+
+/DPtitle {
+  (DQA101)
+} def
+
+/sequence { (\
+UGAAUCCCAUCCUGGAAGGGAAGUGCAUCGCCAUCUACAGGAGCAGAAGAGUGGACUUGCUACAUGACCUAGCACUAUUCUCUGGCCCGAUUUAUCAUAUCCCUUUUCUCCUCCAAAUAUUUCUCCUCUCACCUUUUCUGUGGGACUUAAGCUGCUAUAUCCCCUCAGAGCUCACAAAUGUCUUU\
+) } def
+
+/len { sequence length } bind def
+
+/winSize 75 def
+292 416 translate
+72 6 mul len 1 add winSize add 2 sqrt mul div dup scale
+/Helvetica findfont 0.95 scalefont setfont
+
+/drawseq_turn {% print sequence at bottom
+   gsave
+   len 2 sqrt div dup neg 0.28 add exch 0.78 sub translate
+    0 1 len 1 sub {
+     dup dup 2 sqrt mul 0 moveto
+     sequence exch 1 getinterval
+     show
+    } for
+   grestore
+} bind def
+/drawgrid_turn{
+  0.01 setlinewidth
+  len log 0.9 sub cvi 10 exch exp  % grid spacing
+  dup 1 gt {
+     dup dup 20 div dup 2 array astore exch 40 div setdash
+  } { [0.3 0.7] 0.1 setdash } ifelse
+  0 exch len {    %for (0, gridspacing, len) 
+     dup dup      %duplicate what - gridspacing??
+     dup len exch sub moveto     %moveto diagonal?
+     dup winSize gt
+     {dup dup len exch sub winSize add lineto}
+     {dup len lineto}ifelse
+     dup len exch sub moveto  %moveto diagonal?
+     dup len winSize sub le
+     {dup dup len exch sub dup winSize exch sub len add exch lineto}
+     {dup dup len exch sub len exch lineto}ifelse     stroke pop pop
+  } for
+  len log 0.9 sub cvi 10 exch exp  % grid spacing
+      dup 1 gt {
+          dup dup 20 div dup 2 array astore exch 40 div setdash
+      } { [0.3 0.7] 0.1 setdash } ifelse
+      0 exch len {    %for (0, gridspacing, len) 
+     dup dup      %duplicate what - gridspacing??
+     dup len exch sub moveto     %moveto diagonal?
+     len exch sub 0.7 sub exch 0.7 sub exch lineto
+     stroke
+   }for
+ winSize len moveto  len winSize  lineto stroke
+  [] 0 setdash
+  0.04 setlinewidth 
+  currentdict /cutpoint known {
+    cutpoint 1 sub
+    dup dup -1 moveto len 1 add lineto
+    len exch sub dup
+    -1 exch moveto len 1 add exch lineto
+   stroke
+  } if
+  0.5 neg dup translate
+} bind def 
+
+0.5 dup translate
+drawseq_turn
+45 rotate
+
+
+%draw the grid
+drawgrid_turn
+
+%start of base pair probability data
+5 21 0.8854 ubox
+6 20 0.8760 ubox
+6 46 0.2031 ubox
+7 19 0.8113 ubox
+7 46 0.1764 ubox
+8 18 0.7583 ubox
+8 43 0.1719 ubox
+8 46 0.1021 ubox
+10 16 0.5825 ubox
+10 21 0.1613 ubox
+10 42 0.6636 ubox
+11 15 0.5586 ubox
+11 20 0.1647 ubox
+11 41 0.7340 ubox
+12 19 0.1578 ubox
+12 40 0.7276 ubox
+12 85 0.1685 ubox
+13 18 0.1476 ubox
+13 37 0.3180 ubox
+13 39 0.6841 ubox
+13 84 0.1202 ubox
+14 36 0.4642 ubox
+14 38 0.6247 ubox
+14 87 0.1503 ubox
+15 35 0.6583 ubox
+15 86 0.1086 ubox
+16 34 0.6309 ubox
+17 36 0.2854 ubox
+17 83 0.1023 ubox
+18 31 0.1419 ubox
+18 32 0.6868 ubox
+18 35 0.2877 ubox
+18 36 0.1163 ubox
+18 88 0.1003 ubox
+19 31 0.6686 ubox
+19 32 0.1568 ubox
+19 34 0.2697 ubox
+19 35 0.1195 ubox
+19 36 0.3213 ubox
+20 29 0.6045 ubox
+20 31 0.1522 ubox
+20 34 0.1038 ubox
+20 35 0.3436 ubox
+21 28 0.5564 ubox
+21 34 0.3292 ubox
+22 28 0.1884 ubox
+22 36 0.1026 ubox
+22 76 0.4284 ubox
+23 29 0.1033 ubox
+23 31 0.3428 ubox
+23 32 0.3022 ubox
+23 34 0.1366 ubox
+23 35 0.1040 ubox
+23 38 0.1033 ubox
+23 75 0.4601 ubox
+23 95 0.2289 ubox
+24 30 0.3375 ubox
+24 33 0.1644 ubox
+24 37 0.1009 ubox
+24 74 0.4507 ubox
+24 94 0.1949 ubox
+25 29 0.3155 ubox
+25 31 0.3369 ubox
+25 32 0.1534 ubox
+25 73 0.4417 ubox
+25 93 0.1653 ubox
+26 30 0.3332 ubox
+26 72 0.4326 ubox
+27 91 0.1964 ubox
+28 90 0.1915 ubox
+29 89 0.1801 ubox
+30 68 0.2773 ubox
+30 88 0.1495 ubox
+32 66 0.3812 ubox
+33 65 0.3765 ubox
+33 91 0.2318 ubox
+33 95 0.1465 ubox
+34 64 0.3557 ubox
+34 90 0.2390 ubox
+34 94 0.1433 ubox
+35 89 0.2307 ubox
+36 62 0.3338 ubox
+37 61 0.3317 ubox
+37 91 0.1548 ubox
+38 59 0.3531 ubox
+38 89 0.2260 ubox
+39 58 0.3484 ubox
+39 112 0.5337 ubox
+40 57 0.3439 ubox
+40 87 0.2728 ubox
+40 88 0.9315 ubox
+40 111 0.4225 ubox
+40 114 0.9956 ubox
+41 56 0.3398 ubox
+41 86 0.2669 ubox
+41 87 0.9014 ubox
+41 110 0.3454 ubox
+41 113 0.8440 ubox
+42 109 0.2968 ubox
+42 112 0.7065 ubox
+43 86 0.4090 ubox
+43 108 0.2571 ubox
+43 111 0.6085 ubox
+44 53 0.3249 ubox
+44 84 0.9051 ubox
+44 85 0.2950 ubox
+45 52 0.3130 ubox
+45 83 0.9291 ubox
+45 109 0.5828 ubox
+46 82 0.9153 ubox
+46 108 0.6141 ubox
+47 81 0.6303 ubox
+47 107 0.5759 ubox
+48 81 0.6868 ubox
+48 106 0.5416 ubox
+49 80 0.9333 ubox
+49 105 0.5158 ubox
+50 79 0.9144 ubox
+50 104 0.4991 ubox
+51 78 0.8968 ubox
+51 103 0.4795 ubox
+52 77 0.8796 ubox
+52 115 0.2935 ubox
+53 76 0.8624 ubox
+53 102 0.4647 ubox
+53 111 0.1392 ubox
+53 114 0.3244 ubox
+53 126 0.4179 ubox
+54 75 0.8455 ubox
+54 101 0.4482 ubox
+54 110 0.1325 ubox
+54 113 0.3038 ubox
+54 125 0.2989 ubox
+55 100 0.4278 ubox
+55 109 0.1167 ubox
+55 112 0.2650 ubox
+55 124 0.2257 ubox
+58 74 0.8772 ubox
+58 97 0.3682 ubox
+59 73 0.9074 ubox
+59 96 0.3577 ubox
+60 72 0.9002 ubox
+61 71 0.8902 ubox
+61 94 0.2763 ubox
+62 70 0.8519 ubox
+62 93 0.2685 ubox
+64 91 0.2231 ubox
+64 98 0.1172 ubox
+65 89 0.1779 ubox
+65 90 0.2076 ubox
+65 97 0.1226 ubox
+65 131 0.1759 ubox
+66 88 0.2461 ubox
+66 96 0.1228 ubox
+66 130 0.1872 ubox
+67 95 0.1175 ubox
+67 129 0.1669 ubox
+68 85 0.1667 ubox
+69 84 0.1638 ubox
+69 85 0.3140 ubox
+69 89 0.1102 ubox
+70 84 0.3101 ubox
+71 83 0.3148 ubox
+71 124 0.1163 ubox
+72 82 0.3076 ubox
+72 86 0.2759 ubox
+72 123 0.1176 ubox
+73 85 0.2714 ubox
+74 81 0.1472 ubox
+75 84 0.2643 ubox
+75 85 0.1517 ubox
+76 84 0.1502 ubox
+76 119 0.2182 ubox
+77 83 0.1408 ubox
+77 118 0.2232 ubox
+78 117 0.2166 ubox
+79 116 0.2008 ubox
+82 89 0.1047 ubox
+83 115 0.3862 ubox
+83 154 0.2626 ubox
+83 157 0.6254 ubox
+84 103 0.2630 ubox
+84 111 0.1993 ubox
+84 114 0.4056 ubox
+84 126 0.2199 ubox
+84 153 0.4390 ubox
+84 156 0.5028 ubox
+85 102 0.2587 ubox
+85 110 0.1952 ubox
+85 113 0.3958 ubox
+85 125 0.2138 ubox
+85 152 0.4066 ubox
+85 155 0.4145 ubox
+86 151 0.3626 ubox
+86 154 0.3486 ubox
+89 96 0.2271 ubox
+89 101 0.4997 ubox
+89 108 0.3384 ubox
+89 110 0.1594 ubox
+89 123 0.2670 ubox
+89 161 0.1671 ubox
+90 95 0.1987 ubox
+90 100 0.4927 ubox
+90 107 0.3281 ubox
+90 109 0.1493 ubox
+90 122 0.2604 ubox
+90 160 0.1297 ubox
+91 99 0.4774 ubox
+91 159 0.1016 ubox
+93 119 0.2317 ubox
+94 118 0.2258 ubox
+95 117 0.2085 ubox
+100 145 0.1142 ubox
+101 144 0.1194 ubox
+102 143 0.1164 ubox
+103 142 0.1131 ubox
+103 151 0.1099 ubox
+104 150 0.1071 ubox
+105 149 0.1010 ubox
+109 145 0.1033 ubox
+110 144 0.1050 ubox
+111 143 0.1026 ubox
+117 181 0.1912 ubox
+118 180 0.1837 ubox
+119 179 0.1726 ubox
+120 178 0.1614 ubox
+121 177 0.1499 ubox
+122 176 0.1301 ubox
+123 151 0.1036 ubox
+124 150 0.1004 ubox
+126 180 0.1102 ubox
+127 145 0.6413 ubox
+128 144 0.6988 ubox
+129 143 0.6942 ubox
+130 142 0.7018 ubox
+131 141 0.6942 ubox
+132 140 0.6701 ubox
+132 143 0.1146 ubox
+133 140 0.1511 ubox
+133 142 0.1146 ubox
+136 170 0.7423 ubox
+137 169 0.9582 ubox
+138 168 0.9817 ubox
+139 167 0.9634 ubox
+140 164 0.1723 ubox
+140 166 0.9407 ubox
+142 163 0.8337 ubox
+142 164 0.3967 ubox
+143 162 0.8278 ubox
+143 163 0.3649 ubox
+144 161 0.8211 ubox
+144 162 0.3321 ubox
+145 160 0.8087 ubox
+147 159 0.1067 ubox
+148 157 0.7419 ubox
+148 159 0.1279 ubox
+149 156 0.6970 ubox
+149 158 0.1309 ubox
+150 156 0.2066 ubox
+150 172 0.1693 ubox
+151 155 0.2331 ubox
+151 171 0.1738 ubox
+152 170 0.1683 ubox
+153 169 0.1623 ubox
+155 168 0.1100 ubox
+156 167 0.1036 ubox
+170 181 0.3048 ubox
+171 180 0.3145 ubox
+173 180 0.1220 ubox
+174 181 0.2008 ubox
+175 180 0.1985 ubox
+showpage
+end
+%%EOF
