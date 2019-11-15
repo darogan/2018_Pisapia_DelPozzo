@@ -1,0 +1,547 @@
+; FOLDALIGN           v2.5.1
+; REFERENCE           D. Sundfeld, J.H. Havgaard, A.C. de Melo, and J. Gorodkin
+; REFERENCE           Foldalign 2.5: multithreaded implementation for pairwise
+; REFERENCE           structural RNA alignment.
+; REFERENCE           Bioinformatics 2016, 32(8):1238-1240,
+; REFERENCE           doi: 10.1093/bioinformatics/btv748
+; ALIGNMENT_ID        n.a.
+; ALIGNING            3DQB102|HLA-DQB1-02 against 3DQB105|HLA-DQB1*05
+; PARAMETER           max_length=209
+; PARAMETER           max_diff=25
+; PARAMETER           min_loop=3
+; PARAMETER           score_matrix=<default_local>
+; PARAMETER           nobranching=<false>
+; PARAMETER           global=<false>
+; PARAMETER           use_global_pruning=<false>
+; PARAMETER           i=1
+; PARAMETER           j=209
+; PARAMETER           k=1
+; PARAMETER           l=208
+; PARAMETER           no_prune=<false>
+; PARAMETER           min_LS_score=0
+; SEQUENCE_LENGTH     3DQB102|HLA-DQB1-02 = 209
+; SEQUENCE_LENGTH     3DQB105|HLA-DQB1*05 = 208
+; GC_CONTENT_SEQ_1    0.55
+; GC_CONTENT_SEQ_2    0.55
+; SEQUENCE_1_COMMENT  
+; SEQUENCE_2_COMMENT  
+; ALIGN               
+; ALIGN               Score: 3882
+; ALIGN               Identity: 91 % ( 190 / 209 )
+; ALIGN               
+; ALIGN               3DQB102|HLA-D Begin 1
+; ALIGN               3DQB105|HLA-D Begin 1
+; ALIGN               
+; ALIGN               3DQB102|HLA-D UGACUCCUGA GACUAUUUUA ACUGGGAUUG GUUAUCACUU
+; ALIGN               Structure     (((.....(( ((..(((((. ...)))))(( ((((.((...
+; ALIGN               3DQB105|HLA-D UGACUCCUGA GACUGUUUUA ACUAAGACUG GUUAUCACUC
+; ALIGN               
+; ALIGN               3DQB102|HLA-D UUCUGUAACG CCUGCUUGUC CCUGCCCAGA AUUCCCAGCU
+; ALIGN               Structure     ...))))))( ((((..((.. ..(((...(( .....(((((
+; ALIGN               3DQB105|HLA-D UUCUGUGAUG CCUGCUUGUC CCUGCCCAGA AUUCCCAGCU
+; ALIGN               
+; ALIGN               3DQB102|HLA-D GUCUGUGUCA GCCUGUCCCC CUGAGAUCAG AGUCCUACAG
+; ALIGN               Structure     (.(((..... (((((((... ....)).))) .))....)))
+; ALIGN               3DQB105|HLA-D GCCUGUGUCA GCUUGUCCCC CUGAGAUCAA AGUCCUACAG
+; ALIGN               
+; ALIGN               3DQB102|HLA-D UGGCUGUCAC GCAGCCACCA GGUCAUCUCC UUUCAUCCCC
+; ALIGN               Structure     )))))))).. )))..)).)) ))))))))). ..))).....
+; ALIGN               3DQB105|HLA-D UGGCUGUCAC GCAACCACCA GGUCAUCUCC UUUCAUCCCC
+; ALIGN               
+; ALIGN               3DQB102|HLA-D ACCUUGAGGC GGAUGGCUGU GACCCUACUU CCUGCACUGA
+; ALIGN               Structure     .......((( ...(((..(( (......... ....)))...
+; ALIGN               3DQB105|HLA-D ACCCCAAGGC G-CUGGCUGU GACUCUGCUU CCUGCACUGA
+; ALIGN               
+; ALIGN               3DQB102|HLA-D CCCACAGCC
+; ALIGN               Structure     .)))..)))
+; ALIGN               3DQB105|HLA-D CCCAGAGCC
+; ALIGN               
+; ALIGN               3DQB102|HLA-D End 209
+; ALIGN               3DQB105|HLA-D End 208
+; ==============================================================================
+; TYPE                RNA
+; COL 1               label
+; COL 2               residue
+; COL 3               seqpos
+; COL 4               alignpos
+; COL 5               align_bp
+; COL 6               seqpos_bp
+; ENTRY               3DQB102|HLA-DQB1-02
+; ALIGNMENT_ID        n.a.
+; ALIGNMENT_LIST      3DQB102|HLA-DQB1-02 3DQB105|HLA-DQB1*05
+; FOLDALIGN_SCORE     3882
+; GROUP               1
+; FILENAME            ../3DQB102/3DQB102.fasta
+; START_POSITION      1
+; END_POSITION        209
+; ALIGNMENT_SIZE      2
+; ALIGNMENT_LENGTH    209
+; SEQUENCE_LENGTH     209
+; SEQUENCE_GC_CONTENT 0.55
+; PARAMETER           max_length=209
+; PARAMETER           max_diff=25
+; PARAMETER           min_loop=3
+; PARAMETER           score_matrix=<default_local>
+; PARAMETER           nobranching=<false>
+; PARAMETER           global=<false>
+; PARAMETER           use_global_pruning=<false>
+; PARAMETER           i=1
+; PARAMETER           j=209
+; PARAMETER           k=1
+; PARAMETER           l=208
+; PARAMETER           no_prune=<false>
+; PARAMETER           min_LS_score=0
+; ------------------------------------------------------------------------------
+N         U         1         1       155       155
+N         G         2         2       154       154
+N         A         3         3       153       153
+N         C         4         4         .         .
+N         U         5         5         .         .
+N         C         6         6         .         .
+N         C         7         7         .         .
+N         U         8         8         .         .
+N         G         9         9       149       149
+N         A        10        10       148       148
+N         G        11        11       147       147
+N         A        12        12       146       146
+N         C        13        13         .         .
+N         U        14        14         .         .
+N         A        15        15        28        28
+N         U        16        16        27        27
+N         U        17        17        26        26
+N         U        18        18        25        25
+N         U        19        19        24        24
+N         A        20        20         .         .
+N         A        21        21         .         .
+N         C        22        22         .         .
+N         U        23        23         .         .
+N         G        24        24        19        19
+N         G        25        25        18        18
+N         G        26        26        17        17
+N         A        27        27        16        16
+N         U        28        28        15        15
+N         U        29        29       145       145
+N         G        30        30       144       144
+N         G        31        31        49        49
+N         U        32        32        48        48
+N         U        33        33        47        47
+N         A        34        34        46        46
+N         U        35        35         .         .
+N         C        36        36        45        45
+N         A        37        37        44        44
+N         C        38        38         .         .
+N         U        39        39         .         .
+N         U        40        40         .         .
+N         U        41        41         .         .
+N         U        42        42         .         .
+N         C        43        43         .         .
+N         U        44        44        37        37
+N         G        45        45        36        36
+N         U        46        46        34        34
+N         A        47        47        33        33
+N         A        48        48        32        32
+N         C        49        49        31        31
+N         G        50        50       143       143
+N         C        51        51       142       142
+N         C        52        52       141       141
+N         U        53        53       140       140
+N         G        54        54       139       139
+N         C        55        55         .         .
+N         U        56        56         .         .
+N         U        57        57       137       137
+N         G        58        58       136       136
+N         U        59        59         .         .
+N         C        60        60         .         .
+N         C        61        61         .         .
+N         C        62        62         .         .
+N         U        63        63       133       133
+N         G        64        64       132       132
+N         C        65        65       131       131
+N         C        66        66         .         .
+N         C        67        67         .         .
+N         A        68        68         .         .
+N         G        69        69       128       128
+N         A        70        70       127       127
+N         A        71        71         .         .
+N         U        72        72         .         .
+N         U        73        73         .         .
+N         C        74        74         .         .
+N         C        75        75         .         .
+N         C        76        76       126       126
+N         A        77        77       125       125
+N         G        78        78       124       124
+N         C        79        79       123       123
+N         U        80        80       122       122
+N         G        81        81       121       121
+N         U        82        82         .         .
+N         C        83        83       120       120
+N         U        84        84       119       119
+N         G        85        85       118       118
+N         U        86        86         .         .
+N         G        87        87         .         .
+N         U        88        88         .         .
+N         C        89        89         .         .
+N         A        90        90         .         .
+N         G        91        91       113       113
+N         C        92        92       112       112
+N         C        93        93       110       110
+N         U        94        94       109       109
+N         G        95        95       108       108
+N         U        96        96       106       106
+N         C        97        97       105       105
+N         C        98        98         .         .
+N         C        99        99         .         .
+N         C       100       100         .         .
+N         C       101       101         .         .
+N         U       102       102         .         .
+N         G       103       103         .         .
+N         A       104       104         .         .
+N         G       105       105        97        97
+N         A       106       106        96        96
+N         U       107       107         .         .
+N         C       108       108        95        95
+N         A       109       109        94        94
+N         G       110       110        93        93
+N         A       111       111         .         .
+N         G       112       112        92        92
+N         U       113       113        91        91
+N         C       114       114         .         .
+N         C       115       115         .         .
+N         U       116       116         .         .
+N         A       117       117         .         .
+N         C       118       118        85        85
+N         A       119       119        84        84
+N         G       120       120        83        83
+N         U       121       121        81        81
+N         G       122       122        80        80
+N         G       123       123        79        79
+N         C       124       124        78        78
+N         U       125       125        77        77
+N         G       126       126        76        76
+N         U       127       127        70        70
+N         C       128       128        69        69
+N         A       129       129         .         .
+N         C       130       130         .         .
+N         G       131       131        65        65
+N         C       132       132        64        64
+N         A       133       133        63        63
+N         G       134       134         .         .
+N         C       135       135         .         .
+N         C       136       136        58        58
+N         A       137       137        57        57
+N         C       138       138         .         .
+N         C       139       139        54        54
+N         A       140       140        53        53
+N         G       141       141        52        52
+N         G       142       142        51        51
+N         U       143       143        50        50
+N         C       144       144        30        30
+N         A       145       145        29        29
+N         U       146       146        12        12
+N         C       147       147        11        11
+N         U       148       148        10        10
+N         C       149       149         9         9
+N         C       150       150         .         .
+N         U       151       151         .         .
+N         U       152       152         .         .
+N         U       153       153         3         3
+N         C       154       154         2         2
+N         A       155       155         1         1
+N         U       156       156         .         .
+N         C       157       157         .         .
+N         C       158       158         .         .
+N         C       159       159         .         .
+N         C       160       160         .         .
+N         A       161       161         .         .
+N         C       162       162         .         .
+N         C       163       163         .         .
+N         U       164       164         .         .
+N         U       165       165         .         .
+N         G       166       166         .         .
+N         A       167       167         .         .
+N         G       168       168       209       209
+N         G       169       169       208       208
+N         C       170       170       207       207
+N         G       171       171         .         .
+N         G       172       172         .         .
+N         A       173       173         .         .
+N         U       174       174       204       204
+N         G       175       175       203       203
+N         G       176       176       202       202
+N         C       177       177         .         .
+N         U       178       178         .         .
+N         G       179       179       197       197
+N         U       180       180       196       196
+N         G       181       181       195       195
+N         A       182       182         .         .
+N         C       183       183         .         .
+N         C       184       184         .         .
+N         C       185       185         .         .
+N         U       186       186         .         .
+N         A       187       187         .         .
+N         C       188       188         .         .
+N         U       189       189         .         .
+N         U       190       190         .         .
+N         C       191       191         .         .
+N         C       192       192         .         .
+N         U       193       193         .         .
+N         G       194       194         .         .
+N         C       195       195       181       181
+N         A       196       196       180       180
+N         C       197       197       179       179
+N         U       198       198         .         .
+N         G       199       199         .         .
+N         A       200       200         .         .
+N         C       201       201         .         .
+N         C       202       202       176       176
+N         C       203       203       175       175
+N         A       204       204       174       174
+N         C       205       205         .         .
+N         A       206       206         .         .
+N         G       207       207       170       170
+N         C       208       208       169       169
+N         C       209       209       168       168
+; ******************************************************************************
+; TYPE                RNA
+; COL 1               label
+; COL 2               residue
+; COL 3               seqpos
+; COL 4               alignpos
+; COL 5               align_bp
+; COL 6               seqpos_bp
+; ENTRY               3DQB105|HLA-DQB1*05
+; ALIGNMENT_ID        n.a.
+; ALIGNMENT_LIST      3DQB102|HLA-DQB1-02 3DQB105|HLA-DQB1*05
+; FOLDALIGN_SCORE     3882
+; GROUP               2
+; FILENAME            ../3DQB105/3DQB105.fasta
+; START_POSITION      1
+; END_POSITION        208
+; ALIGNMENT_SIZE      2
+; ALIGNMENT_LENGTH    209
+; SEQUENCE_LENGTH     208
+; SEQUENCE_GC_CONTENT 0.55
+; PARAMETER           max_length=209
+; PARAMETER           max_diff=25
+; PARAMETER           min_loop=3
+; PARAMETER           score_matrix=<default_local>
+; PARAMETER           nobranching=<false>
+; PARAMETER           global=<false>
+; PARAMETER           use_global_pruning=<false>
+; PARAMETER           i=1
+; PARAMETER           j=209
+; PARAMETER           k=1
+; PARAMETER           l=208
+; PARAMETER           no_prune=<false>
+; PARAMETER           min_LS_score=0
+; ------------------------------------------------------------------------------
+N         U         1         1       155       155
+N         G         2         2       154       154
+N         A         3         3       153       153
+N         C         4         4         .         .
+N         U         5         5         .         .
+N         C         6         6         .         .
+N         C         7         7         .         .
+N         U         8         8         .         .
+N         G         9         9       149       149
+N         A        10        10       148       148
+N         G        11        11       147       147
+N         A        12        12       146       146
+N         C        13        13         .         .
+N         U        14        14         .         .
+N         G        15        15        28        28
+N         U        16        16        27        27
+N         U        17        17        26        26
+N         U        18        18        25        25
+N         U        19        19        24        24
+N         A        20        20         .         .
+N         A        21        21         .         .
+N         C        22        22         .         .
+N         U        23        23         .         .
+N         A        24        24        19        19
+N         A        25        25        18        18
+N         G        26        26        17        17
+N         A        27        27        16        16
+N         C        28        28        15        15
+N         U        29        29       145       145
+N         G        30        30       144       144
+N         G        31        31        49        49
+N         U        32        32        48        48
+N         U        33        33        47        47
+N         A        34        34        46        46
+N         U        35        35         .         .
+N         C        36        36        45        45
+N         A        37        37        44        44
+N         C        38        38         .         .
+N         U        39        39         .         .
+N         C        40        40         .         .
+N         U        41        41         .         .
+N         U        42        42         .         .
+N         C        43        43         .         .
+N         U        44        44        37        37
+N         G        45        45        36        36
+N         U        46        46        34        34
+N         G        47        47        33        33
+N         A        48        48        32        32
+N         U        49        49        31        31
+N         G        50        50       143       143
+N         C        51        51       142       142
+N         C        52        52       141       141
+N         U        53        53       140       140
+N         G        54        54       139       139
+N         C        55        55         .         .
+N         U        56        56         .         .
+N         U        57        57       137       137
+N         G        58        58       136       136
+N         U        59        59         .         .
+N         C        60        60         .         .
+N         C        61        61         .         .
+N         C        62        62         .         .
+N         U        63        63       133       133
+N         G        64        64       132       132
+N         C        65        65       131       131
+N         C        66        66         .         .
+N         C        67        67         .         .
+N         A        68        68         .         .
+N         G        69        69       128       128
+N         A        70        70       127       127
+N         A        71        71         .         .
+N         U        72        72         .         .
+N         U        73        73         .         .
+N         C        74        74         .         .
+N         C        75        75         .         .
+N         C        76        76       126       126
+N         A        77        77       125       125
+N         G        78        78       124       124
+N         C        79        79       123       123
+N         U        80        80       122       122
+N         G        81        81       121       121
+N         C        82        82         .         .
+N         C        83        83       120       120
+N         U        84        84       119       119
+N         G        85        85       118       118
+N         U        86        86         .         .
+N         G        87        87         .         .
+N         U        88        88         .         .
+N         C        89        89         .         .
+N         A        90        90         .         .
+N         G        91        91       113       113
+N         C        92        92       112       112
+N         U        93        93       110       110
+N         U        94        94       109       109
+N         G        95        95       108       108
+N         U        96        96       106       106
+N         C        97        97       105       105
+N         C        98        98         .         .
+N         C        99        99         .         .
+N         C       100       100         .         .
+N         C       101       101         .         .
+N         U       102       102         .         .
+N         G       103       103         .         .
+N         A       104       104         .         .
+N         G       105       105        97        97
+N         A       106       106        96        96
+N         U       107       107         .         .
+N         C       108       108        95        95
+N         A       109       109        94        94
+N         A       110       110        93        93
+N         A       111       111         .         .
+N         G       112       112        92        92
+N         U       113       113        91        91
+N         C       114       114         .         .
+N         C       115       115         .         .
+N         U       116       116         .         .
+N         A       117       117         .         .
+N         C       118       118        85        85
+N         A       119       119        84        84
+N         G       120       120        83        83
+N         U       121       121        81        81
+N         G       122       122        80        80
+N         G       123       123        79        79
+N         C       124       124        78        78
+N         U       125       125        77        77
+N         G       126       126        76        76
+N         U       127       127        70        70
+N         C       128       128        69        69
+N         A       129       129         .         .
+N         C       130       130         .         .
+N         G       131       131        65        65
+N         C       132       132        64        64
+N         A       133       133        63        63
+N         A       134       134         .         .
+N         C       135       135         .         .
+N         C       136       136        58        58
+N         A       137       137        57        57
+N         C       138       138         .         .
+N         C       139       139        54        54
+N         A       140       140        53        53
+N         G       141       141        52        52
+N         G       142       142        51        51
+N         U       143       143        50        50
+N         C       144       144        30        30
+N         A       145       145        29        29
+N         U       146       146        12        12
+N         C       147       147        11        11
+N         U       148       148        10        10
+N         C       149       149         9         9
+N         C       150       150         .         .
+N         U       151       151         .         .
+N         U       152       152         .         .
+N         U       153       153         3         3
+N         C       154       154         2         2
+N         A       155       155         1         1
+N         U       156       156         .         .
+N         C       157       157         .         .
+N         C       158       158         .         .
+N         C       159       159         .         .
+N         C       160       160         .         .
+N         A       161       161         .         .
+N         C       162       162         .         .
+N         C       163       163         .         .
+N         C       164       164         .         .
+N         C       165       165         .         .
+N         A       166       166         .         .
+N         A       167       167         .         .
+N         G       168       168       209       208
+N         G       169       169       208       207
+N         C       170       170       207       206
+N         G       171       171         .         .
+G         -         .       172         .         .
+N         C       172       173         .         .
+N         U       173       174       204       203
+N         G       174       175       203       202
+N         G       175       176       202       201
+N         C       176       177         .         .
+N         U       177       178         .         .
+N         G       178       179       197       196
+N         U       179       180       196       195
+N         G       180       181       195       194
+N         A       181       182         .         .
+N         C       182       183         .         .
+N         U       183       184         .         .
+N         C       184       185         .         .
+N         U       185       186         .         .
+N         G       186       187         .         .
+N         C       187       188         .         .
+N         U       188       189         .         .
+N         U       189       190         .         .
+N         C       190       191         .         .
+N         C       191       192         .         .
+N         U       192       193         .         .
+N         G       193       194         .         .
+N         C       194       195       181       180
+N         A       195       196       180       179
+N         C       196       197       179       178
+N         U       197       198         .         .
+N         G       198       199         .         .
+N         A       199       200         .         .
+N         C       200       201         .         .
+N         C       201       202       176       175
+N         C       202       203       175       174
+N         A       203       204       174       173
+N         G       204       205         .         .
+N         A       205       206         .         .
+N         G       206       207       170       170
+N         C       207       208       169       169
+N         C       208       209       168       168
+; ******************************************************************************
