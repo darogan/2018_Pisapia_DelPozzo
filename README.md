@@ -53,15 +53,32 @@ The following commands run from the same directory will produce frequency tables
 
 > Generate frequency tables:
 
+Script available ([AURichness.pl](Scripts/AURichness.pl))
+
     perl AURichness.pl
 
- > Example frequency table:
+> Download frequency tables:
+
+* [[mononuc.table.txt](Tables/mononuc.table.txt)]
+* [[dinuc.table.txt](Tables/dinuc.table.txt)]
+* [[trinuc.table.txt](Tables/trinuc.table.txt)]
+* [[quadnuc.table.txt](Tables/quadnuc.table.txt)]
+* [[pentanuc.table.txt](Tables/pentanuc.table.txt)]
+* [[hexanuc.table.txt](Tables/hexanuc.table.txt)]
+
+> Example frequency table:
 
 | Sequence  | Dinucleotide | Obs_freq           | Exp_freq           |
 | ----------| ------------ | ------------------ | -------------------|
 | DQB102    | AA           | 0.0144230769230769 | 0.0313408575810993 |
 | DQB102    | AC           | 0.0673076923076923 | 0.0592935143426204 |
 | DQB102    | AG           | 0.0576923076923077 | 0.0372702090153614 |
+
+> Download Density Tables
+
+* [[DQA101_DQA105_densities.txt](Tables/DQA101_DQA105_densities.txt)]
+* [[DQB105_DQB102_densities.txt](Tables/DQB105_DQB102_densities.txt)]
+
 
 > Example density table:
 
@@ -71,6 +88,7 @@ The following commands run from the same directory will produce frequency tables
 | 1|0|0|0|0|0|0|0|0|1|0|
 | 2|0|0|0|0|0|0|0|0|0|0|
 
+
 > Structure Accessibility
 
 Calculated for each sequence and added to the AU frequency plots using RNAplfold (Lorenz et al, 2011) with a temperature of 37&deg;C, window size of 75 and mean structure score for fragments of 10 nt (`RNAplfold -T 37 -W 75 -u 10`).
@@ -78,17 +96,17 @@ Calculated for each sequence and added to the AU frequency plots using RNAplfold
 
 > Plots
 
-Create plots from frequency tables using the provided R script ([AURichAnalysis_V2.R](AURichAnalysis_V2.R)) (R v3.4.4):
+Create plots from frequency tables using the provided R script ([AURichAnalysis_V2.R](Scripts/AURichAnalysis_V2.R)) (R v3.4.4):
 
     Rscript AURichAnalysis_V2.R
 
 Example AU Rich Motif Observed Vs Expected Frequency plot
 
-![AUMotif_ObsExp](AUMotif_ObsExp.png?raw=true=120x)
+![AUMotif_ObsExp](Figures/AUMotif_ObsExp.png?raw=true=120x)
 
 Examples AU Rich Motif Position plot
 
-![AUMotif_Positions](AUMotif_Positions.png?raw=true=120x)
+![AUMotif_Positions](Figures/AUMotif_Positions.png?raw=true=120x)
 
 
 
